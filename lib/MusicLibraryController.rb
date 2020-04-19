@@ -3,6 +3,7 @@ class MusicLibraryController
   attr_accessor :music_im
 
     def initialize(path='./db/mp3s')
+      @path=path
       @music_im = MusicImporter.new(path)
       @music_im.import
 
@@ -97,7 +98,6 @@ class MusicLibraryController
        end
        puts("Which song number would you like to play?")
           user_input = gets.strip.to_i
-      #  if  user_input.between?(0, arr.length+1)
         if user_input > 0 && user_input <= arr.length
               puts arr[user_input-1]
          end
